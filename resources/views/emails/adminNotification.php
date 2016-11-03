@@ -39,7 +39,7 @@
         <div class="container">
             <div class="content">
                 <div class="title">Se ha agregado un registro a la base de datos</div>
-                <div>{{mensaje}}</div>
+                <div>{{ $mensaje }}</div>
             </div>
         </div>
     </body>

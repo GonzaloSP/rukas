@@ -13,7 +13,7 @@ class ImportController extends Controller
 {
     public function getIndex()
     {
-        $data['emailTo'] = 'gonzalop@carchecking.com.ar';
+        $data['emailTo'] = 'email@to.com';
         $data['from'] = 'admin@localhost.com';
         $files = scandir('CSV');
         ini_set('max_execution_time', 0);
@@ -75,8 +75,8 @@ class ImportController extends Controller
                                       $vmodel->Codigo = $VEVT;
                                       $vmodel->save();
                                       $model->VEVT = $vmodel->ID_Vendedor;
-                                      $mensaje = 'Se ha creado el vendedor con el ID '.$vmodel->ID_Vendedor;
-                                      Mail::send('emails.adminNotification', ['mensaje' => $mensaje], function ($message) use ($data) {
+                                      $emaildata['mensaje'] = 'Se ha creado el vendedor con el ID '.$vmodel->ID_Vendedor;
+                                      Mail::send('emails.adminNotification', $emaildata, function ($message) use ($data) {
                                           $message->to($data['emailTo'])->from($data['from'])->subject('Nuevo Vendedor!');
                                       });
                                   } else {
@@ -305,7 +305,7 @@ class ImportController extends Controller
                                           $grendi->ID_Empresa = $ID_Empresa;
                                           $grendi->ID_Grendi = $GRENDI;
                                           $grendi->save();
-                                          $mensaje = 'Se ha creado un nuevo registro en GRENDI con el ID '. $GRENDI . ' y la el ID de empresa ' . $ID_EMPRESA;
+                                          $mensaje = 'Se ha creado un nuevo registro en GRENDI con el ID '. $GRENDI . ' y la el ID de empresa ' . $ID_Empresa;
                                           Mail::send('emails.adminNotification', ['mensaje' => $mensaje], function ($message) use ($data) {
                                               $message->to($data['emailTo'])->from($data['from'])->subject('Nuevo Registro!');
                                           });

@@ -17,9 +17,7 @@ Laravel is accessible, yet powerful, providing tools needed for large, robust ap
 2) Luego copiar el archivo .env en la carpeta raíz en donde se encuentra la aplicación y reemplazar los datos de conexión a la base de datos:
 
 DB_CONNECTION=mysql
-
 DB_HOST=127.0.0.1
-
 DB_PORT=3306
 DB_DATABASE=mydb
 DB_USERNAME=XXXX
