@@ -43,3 +43,7 @@ MAIL_PORT=25
 MAIL_USERNAME=null
 MAIL_PASSWORD=null
 MAIL_ENCRYPTION=null
+
+# Formato del archivo
+IDGP_IDEN_IDDV_ID_EMPRESA
+Example: Filename: 0103_040916_1525_0916, IDGP=0103; IDEN=04916; IDDV=1525; el resto es la fecha
