@@ -518,6 +518,7 @@ class ImportController extends Controller
                       }
                  }
                 fclose($file);
+                echo 'El archivo ' . $filename . ' ha sido procesado';
                 rename('CSV/'.$filename, 'importedCSV/'.$filename);
             }
         }
