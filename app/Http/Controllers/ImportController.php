@@ -317,13 +317,19 @@ class ImportController extends Controller
                                       $model1->Sku = $model->MTPD;
                                       $model1->Descripcion = $model->DSMT;
                                       $model1->UOM = $model->UMIT;
-                                      $PesoNeto = $model->PNIT / $model->CPIT;
-                                      $model1->PesoNeto = $PesoNeto;
+                                      if ($model->CPIT != 0) {
+                                        $PesoNeto = $model->PNIT / $model->CPIT;
+                                        $model1->PesoNeto = $PesoNeto;
+                                      }
                                       $model1->PesoBruto = $model->MTPD;
-                                      $Volumen = $model->VOIT / $model->CPIT;
-                                      $model1->Volumen = $Volumen;
-                                      $CantxPallet = $model->PLIT / $model->CPIT;
-                                      $model1->CantxPallet = $CantxPallet;
+                                      if ($model->CPIT != 0) {
+                                        $Volumen = $model->VOIT / $model->CPIT;
+                                        $model1->Volumen = $Volumen;
+                                      }
+                                      if ($model->CPIT != 0) {
+                                        $CantxPallet = $model->PLIT / $model->CPIT;
+                                        $model1->CantxPallet = $CantxPallet;
+                                      }
                                       $is_saved = $model1->save();
                                       if ($is_saved) {
                                           $model->MTPD = $model1->ID_Mercaderia;
